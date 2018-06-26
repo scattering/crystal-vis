@@ -11,7 +11,7 @@ import os
 #Read every x,y,z coordinate for each row
 #Create a string "savg-translate x y z" for the shell command
 
-command_features = "cat file.txt | savg-sphere
+command_features = "cat file.txt | savg-sphere | savg-sca" + 
 
 #Read indices 5,6 for every row in file.txt
 
