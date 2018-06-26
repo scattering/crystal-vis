@@ -10,3 +10,4 @@ Write into shell:
 $ source /usr/local/HEV/.bashhev
 $ hev
 ```
+This sets up the HEV environment for .osg.
