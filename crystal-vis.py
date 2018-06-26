@@ -15,7 +15,7 @@ rgbStrings = []
 xyzCoords = []
 
 #Read every x,y,z coordinate for each row
-file = open("file.txt", "r")
+file = open("coordinates.txt", "r")
 line = file.readline()
 while line != "":
 	splitLine = line.split()
