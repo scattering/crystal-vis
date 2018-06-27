@@ -10,10 +10,12 @@ import os
 hklCoords = []
 #List of float lists (h, k, l)
 hklRealCoords = []
+#List of lines
+lineCoords = []
 
 #Read every x,y,z coordinate for each row
 file = open("hkl.txt", "r")
-file2 = open("lines.txt", "w")
+file2 = open("lines.savg", "w")
 
 line = file.readline()
 
@@ -29,23 +31,23 @@ os.system("hev")
 #os.system("cat > master.sh")
 os.system("rm molecule.savg")
 os.system("touch molecule.savg")
-os.system("rm lines.savg")
-os.system("touch lines.savg")
-
-#write "lines" into this file
-#os.system("lines > lines.savg")
-#file2.write("lines\n")
+#os.system("rm lines.savg")
+#os.system("touch lines.savg")
 
 #Create a string that can be run in the shell command
 for i in range(len(hklCoords)):
 	os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + " >> molecule.savg")
-	#file2.write(hklRealCoords[i][0] + " " + hklRealCoords[i][1] + " " + hklRealCoords[i][2])
+	#file2.write(str(hklRealCoords[i][0]) + " " + hklRealCoords[i][1] + " " + hklRealCoords[i][2])
 	if (i % 2 == 0):
 		file2.write("lines\n")
 	file2.write(hklCoords[i] + "\n")
 
-os.system("irisfly --ex molecule.savg")
-#os.system("irisfly --ex lines.txt")
-
 file.close()
 file2.close()
+
+#os.system("irisfly --ex molecule.savg")
+#os.system("irisfly --ex lines.savg molecule.savg")
+
+#os.system("hev-moo molecule.savg lines.savg > demo.iris")
+#os.system("irisfly --ex demo.iris")
+
