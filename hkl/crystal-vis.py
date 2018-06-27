@@ -34,16 +34,18 @@ os.system("touch lines.savg")
 
 #write "lines" into this file
 #os.system("lines > lines.savg")
-file2.write("lines\n")
+#file2.write("lines\n")
 
 #Create a string that can be run in the shell command
 for i in range(len(hklCoords)):
 	os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + " >> molecule.savg")
 	#file2.write(hklRealCoords[i][0] + " " + hklRealCoords[i][1] + " " + hklRealCoords[i][2])
+	if (i % 2 == 0):
+		file2.write("lines\n")
 	file2.write(hklCoords[i] + "\n")
 
 os.system("irisfly --ex molecule.savg")
-os.system("irisfly --ex lines.txt")
+#os.system("irisfly --ex lines.txt")
 
 file.close()
 file2.close()
