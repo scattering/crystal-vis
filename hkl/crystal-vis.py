@@ -10,8 +10,6 @@ import os
 hklCoords = []
 #List of float lists (h, k, l)
 hklRealCoords = []
-#List of lines
-lineCoords = []
 
 #Read every x,y,z coordinate for each row
 file = open("hkl.txt", "r")
