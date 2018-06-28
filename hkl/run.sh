@@ -1,5 +1,5 @@
 #!/bin/bash
 
-hev-moo molecule.savg lines.savg > demo.iris
+#Displays the model made in hkl-vis.py
+hev-moo hklCoords.savg lines.savg > demo.iris
 irisfly --ex demo.iris
-
