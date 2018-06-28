@@ -15,6 +15,7 @@ os.system("rm lines.savg")
 #List of Strings, e.g. ["1 1 1", "1 3 1", "1 3 3"]
 hklCoords = []
 rewardList = []
+rewardChangeList = []
 
 #Read every x,y,z coordinate for each row
 file = open("hkl2.txt", "r")
@@ -36,6 +37,7 @@ while line != "":
 
 	#Get data from the line into our lists
 	hklCoords.append(splitLine[0] + " " + splitLine[1] + " " + splitLine[2])
+	rewardChangeList.append(splitLine[3])
 	rewardList.append(float(splitLine[4]))
 
 	#Whoa it's the next line
@@ -63,7 +65,10 @@ for i in range(len(hklCoords)):
 	if (i != 0):
 		file2.write("lines\n")
 		#change in reward
-		file2.write(hklCoords[i-1] + "\n" + hklCoords[i] + "\n")
+		if (rewardChangeList[i] == "0.5"):
+			file2.write(hklCoords[i-1] + " 1.0 0.4 0.0 1.0 \n" + hklCoords[i] + " 1.0 0.4 0.0 1.0 \n")
+		else:
+			file2.write(hklCoords[i-1] + " 0.0 1.0 0.0 1.0 \n" + hklCoords[i] + " 0.0 1.0 0.0 1.0 \n")
 
 file.close()
 file2.close()
