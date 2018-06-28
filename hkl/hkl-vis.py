@@ -52,15 +52,17 @@ print(rewardList)
 #Create a string that can be run in the shell command
 for i in range(len(hklCoords)):
 	#For the spheres/HKL points
-	scaledReward = 0.5*rewardList[i]
-
-	#The colors actually are supposed to be on the lines, not the atoms!!
-	os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + \
-		  " | savg-color -r " + str(0.5 + scaledReward/maxR) + " -g 0 -b " + str(0.5 - scaledReward/maxR) + " >> molecule.savg")
+	if (rewardList[i] > 0):
+		os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + \
+			  " | savg-color -r 1  -g " + str(1.0 - rewardListA[i]/maxR) + " -b " + str(1.0 - rewardListA[i]/maxR) + " >> molecule.savg")
+	else:
+		os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + \
+                          " | savg-color -r " + str(1.0 - rewardListA[i]/maxR) + " -g " + str(1.0 - rewardListA[i]/maxR) + " -b 1 >> molecule.savg")
 
 	#For the paths between HKL points
 	if (i != 0):
 		file2.write("lines\n")
+		#change in reward
 		file2.write(hklCoords[i-1] + "\n" + hklCoords[i] + "\n")
 
 file.close()
