@@ -22,7 +22,6 @@ rewardList = []
 rewardChangeList = []
 
 file = open("hkl4.txt", "r")			#Whatever filename your data is in
-file2 = open("lines.savg", "w")
 
 
 #gets rid of the first line (headers)
@@ -60,7 +59,7 @@ print("Generating model...")
 
 #Create a string that can be run in the shell command
 for i in range(len(hklCoords)):
-
+	
 	#Create the spheres (HKL points)
 	if (rewardList[i] > 0):
 		os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + \
@@ -69,19 +68,28 @@ for i in range(len(hklCoords)):
 		os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + \
                           " | savg-color -r " + str(1.0 - rewardListA[i]/maxR) + " -g " + str(1.0 - rewardListA[i]/maxR) + " -b 1 >> hklCoords.savg")
 
-
 	#Create the path (between HKL points) taken by the agent
 	if (i != 0):
+		if (i < 10):
+			file2 = open("line00" + str(i) + ".savg", "w")
+		elif (i < 100):
+			file2 = open("line0" + str(i) + ".savg", "w")
+		else:
+			file2 = open("line" + str(i) + ".savg", "w")
+		if (i != 1):
+			prevfile = open("line" + str(i-1) + ".savg", "r") 
+			file2.write(prevfile.read())	
 		file2.write("lines\n")
-
+		
 		#change in reward is orange if it led to a better fit and green if it led to worse fit
 		if (rewardChangeList[i] == "0.5"):
 			file2.write(hklCoords[i-1] + " 1.0 0.4 0.0 1.0 \n" + hklCoords[i] + " 1.0 0.4 0.0 1.0 \n")
 		else:
 			file2.write(hklCoords[i-1] + " 0.0 1.0 0.0 1.0 \n" + hklCoords[i] + " 0.0 1.0 0.0 1.0 \n")
-
+		file2.close()
 
 file.close()
-file2.close()
+
+#os.system("hev-animatorIRIS 
 
 print("Done")

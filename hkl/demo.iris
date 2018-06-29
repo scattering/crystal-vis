@@ -1,5 +1,5 @@
 #
-# Created: Fri Jun 29 09:12:31 EDT 2018
+# Created: Fri Jun 29 10:41:34 EDT 2018
 # With command: hev-moo hklCoords.savg
 #
 # Example Usage: irisfly --ex file.iris
@@ -9,12 +9,12 @@
 # Load objects and create scenegraph switch models on/off #
 ###########################################################
 
-LOAD moo_ryc_53968-hklCoords hklCoords.savg
-NODEMASK moo_ryc_53968-hklCoords OFF
-ADDCHILD moo_ryc_53968-hklCoords world
-LOAD moo_ryc_53968-lines lines.savg
-NODEMASK moo_ryc_53968-lines OFF
-ADDCHILD moo_ryc_53968-lines world
+LOAD moo_ryc_62857-hklCoords hklCoords.savg
+NODEMASK moo_ryc_62857-hklCoords OFF
+ADDCHILD moo_ryc_62857-hklCoords world
+LOAD moo_ryc_62857-lines lines.savg
+NODEMASK moo_ryc_62857-lines OFF
+ADDCHILD moo_ryc_62857-lines world
 
 ###################################################
 # Create the "MOO" mcp file to turn models on/off #
@@ -24,13 +24,13 @@ WAIT echo > /tmp/moo_${USER}${PPID}.mcp
 WAIT echo SIZE 75 20  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo COLUMNS 3  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo BUTTON hklCoords  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo ON  NODEMASK moo_ryc_53968-hklCoords ON  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo OFF NODEMASK moo_ryc_53968-hklCoords OFF >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo ON  NODEMASK moo_ryc_62857-hklCoords ON  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo OFF NODEMASK moo_ryc_62857-hklCoords OFF >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo SIZE 75 20  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo COLUMNS 3  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo BUTTON lines  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo ON  NODEMASK moo_ryc_53968-lines ON  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo OFF NODEMASK moo_ryc_53968-lines OFF >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo ON  NODEMASK moo_ryc_62857-lines ON  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo OFF NODEMASK moo_ryc_62857-lines OFF >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo RESET hide show COLOR .7 .8 1  >> /tmp/moo_${USER}${PPID}.mcp
 
 ################################################
