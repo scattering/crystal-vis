@@ -1,5 +1,5 @@
 #
-# Created: Fri Jun 29 11:42:34 EDT 2018
+# Created: Fri Jun 29 12:49:51 EDT 2018
 # With command: hev-moo
 #
 # Example Usage: irisfly --ex file.iris
@@ -9,9 +9,9 @@
 # Load objects and create scenegraph switch models on/off #
 ###########################################################
 
-LOAD moo_ryc_9429-hklCoords hklCoords.savg
-NODEMASK moo_ryc_9429-hklCoords OFF
-ADDCHILD moo_ryc_9429-hklCoords world
+LOAD moo_ryc_14448-hklCoords hklCoords.savg
+NODEMASK moo_ryc_14448-hklCoords OFF
+ADDCHILD moo_ryc_14448-hklCoords world
 
 ###################################################
 # Create the "MOO" mcp file to turn models on/off #
@@ -21,8 +21,8 @@ WAIT echo > /tmp/moo_${USER}${PPID}.mcp
 WAIT echo SIZE 75 20  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo COLUMNS 3  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo BUTTON hklCoords  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo ON  NODEMASK moo_ryc_9429-hklCoords ON  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo OFF NODEMASK moo_ryc_9429-hklCoords OFF >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo ON  NODEMASK moo_ryc_14448-hklCoords ON  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo OFF NODEMASK moo_ryc_14448-hklCoords OFF >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo RESET hide show COLOR .7 .8 1  >> /tmp/moo_${USER}${PPID}.mcp
 
 ################################################
@@ -43,7 +43,7 @@ WAIT irisfly-addToMCP /tmp/mooAddToMCP_${USER}${PPID}.mcp
 AFTER CLEANUP EXEC rm /tmp/moo_${USER}${PPID}.mcp
 AFTER CLEANUP EXEC rm /tmp/mooAddToMCP_${USER}${PPID}.mcp
 # animator iris contains 198 files
-# Created by hev-animatorIRIS Fri Jun 29 11:42:34 EDT 2018
+# Created by hev-animatorIRIS Fri Jun 29 12:49:51 EDT 2018
 # hev-animatorIRIX hklCoords.savg line001.savg line002.savg line003.savg line004.savg line005.savg line006.savg line007.savg line008.savg line009.savg line010.savg line011.savg line012.savg line013.savg line014.savg line015.savg line016.savg line017.savg line018.savg line019.savg line020.savg line021.savg line022.savg line023.savg line024.savg line025.savg line026.savg line027.savg line028.savg line029.savg line030.savg line031.savg line032.savg line033.savg line034.savg line035.savg line036.savg line037.savg line038.savg line039.savg line040.savg line041.savg line042.savg line043.savg line044.savg line045.savg line046.savg line047.savg line048.savg line049.savg line050.savg line051.savg line052.savg line053.savg line054.savg line055.savg line056.savg line057.savg line058.savg line059.savg line060.savg line061.savg line062.savg line063.savg line064.savg line065.savg line066.savg line067.savg line068.savg line069.savg line070.savg line071.savg line072.savg line073.savg line074.savg line075.savg line076.savg line077.savg line078.savg line079.savg line080.savg line081.savg line082.savg line083.savg line084.savg line085.savg line086.savg line087.savg line088.savg line089.savg line090.savg line091.savg line092.savg line093.savg line094.savg line095.savg line096.savg line097.savg line098.savg line099.savg line100.savg line101.savg line102.savg line103.savg line104.savg line105.savg line106.savg line107.savg line108.savg line109.savg line110.savg line111.savg line112.savg line113.savg line114.savg line115.savg line116.savg line117.savg line118.savg line119.savg line120.savg line121.savg line122.savg line123.savg line124.savg line125.savg line126.savg line127.savg line128.savg line129.savg line130.savg line131.savg line132.savg line133.savg line134.savg line135.savg line136.savg line137.savg line138.savg line139.savg line140.savg line141.savg line142.savg line143.savg line144.savg line145.savg line146.savg line147.savg line148.savg line149.savg line150.savg line151.savg line152.savg line153.savg line154.savg line155.savg line156.savg line157.savg line158.savg line159.savg line160.savg line161.savg line162.savg line163.savg line164.savg line165.savg line166.savg line167.savg line168.savg line169.savg line170.savg line171.savg line172.savg line173.savg line174.savg line175.savg line176.savg line177.savg line178.savg line179.savg line180.savg line181.savg line182.savg line183.savg line184.savg line185.savg line186.savg line187.savg line188.savg line189.savg line190.savg line191.savg line192.savg line193.savg line194.savg line195.savg line196.savg molecule.savg
 GROUP line
 LOAD F_line1 hklCoords.savg
@@ -840,7 +840,7 @@ ADDCHILD F_line198 line
 
 RETURN line
 # animator iris contains 198 files
-# Created by hev-animatorIRIS Fri Jun 29 11:42:34 EDT 2018
+# Created by hev-animatorIRIS Fri Jun 29 12:49:52 EDT 2018
 # hev-animatorIRIX hklCoords.savg line001.savg line002.savg line003.savg line004.savg line005.savg line006.savg line007.savg line008.savg line009.savg line010.savg line011.savg line012.savg line013.savg line014.savg line015.savg line016.savg line017.savg line018.savg line019.savg line020.savg line021.savg line022.savg line023.savg line024.savg line025.savg line026.savg line027.savg line028.savg line029.savg line030.savg line031.savg line032.savg line033.savg line034.savg line035.savg line036.savg line037.savg line038.savg line039.savg line040.savg line041.savg line042.savg line043.savg line044.savg line045.savg line046.savg line047.savg line048.savg line049.savg line050.savg line051.savg line052.savg line053.savg line054.savg line055.savg line056.savg line057.savg line058.savg line059.savg line060.savg line061.savg line062.savg line063.savg line064.savg line065.savg line066.savg line067.savg line068.savg line069.savg line070.savg line071.savg line072.savg line073.savg line074.savg line075.savg line076.savg line077.savg line078.savg line079.savg line080.savg line081.savg line082.savg line083.savg line084.savg line085.savg line086.savg line087.savg line088.savg line089.savg line090.savg line091.savg line092.savg line093.savg line094.savg line095.savg line096.savg line097.savg line098.savg line099.savg line100.savg line101.savg line102.savg line103.savg line104.savg line105.savg line106.savg line107.savg line108.savg line109.savg line110.savg line111.savg line112.savg line113.savg line114.savg line115.savg line116.savg line117.savg line118.savg line119.savg line120.savg line121.savg line122.savg line123.savg line124.savg line125.savg line126.savg line127.savg line128.savg line129.savg line130.savg line131.savg line132.savg line133.savg line134.savg line135.savg line136.savg line137.savg line138.savg line139.savg line140.savg line141.savg line142.savg line143.savg line144.savg line145.savg line146.savg line147.savg line148.savg line149.savg line150.savg line151.savg line152.savg line153.savg line154.savg line155.savg line156.savg line157.savg line158.savg line159.savg line160.savg line161.savg line162.savg line163.savg line164.savg line165.savg line166.savg line167.savg line168.savg line169.savg line170.savg line171.savg line172.savg line173.savg line174.savg line175.savg line176.savg line177.savg line178.savg line179.savg line180.savg line181.savg line182.savg line183.savg line184.savg line185.savg line186.savg line187.savg line188.savg line189.savg line190.savg line191.savg line192.savg line193.savg line194.savg line195.savg line196.savg molecule.savg
 GROUP line
 GROUP F_line1
