@@ -21,7 +21,7 @@ rewardList = []
 #List of changes in reward at each time step (Strings), e.g. ["0"
 rewardChangeList = []
 
-file = open("hkl2.txt", "r")			#Whatever filename your data is in
+file = open("hkl4.txt", "r")			#Whatever filename your data is in
 file2 = open("lines.savg", "w")
 
 
