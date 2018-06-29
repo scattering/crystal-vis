@@ -70,15 +70,24 @@ for i in range(len(hklCoords)):
 
 	#Create the path (between HKL points) taken by the agent
 	if (i != 0):
+		#padding
 		if (i < 10):
 			file2 = open("line00" + str(i) + ".savg", "w")
 		elif (i < 100):
 			file2 = open("line0" + str(i) + ".savg", "w")
 		else:
 			file2 = open("line" + str(i) + ".savg", "w")
+		
+		#for when there's a prev file
 		if (i != 1):
-			prevfile = open("line" + str(i-1) + ".savg", "r") 
-			file2.write(prevfile.read())	
+			if (i < 11):
+				prevfile = open("line00" + str(i-1) + ".savg", "r") 
+			elif (i < 101):
+                                prevfile = open("line0" + str(i-1) + ".savg", "r")
+			else:
+                                prevfile = open("line" + str(i-1) + ".savg", "r")
+			file2.write(prevfile.read())
+	
 		file2.write("lines\n")
 		
 		#change in reward is orange if it led to a better fit and green if it led to worse fit
@@ -88,8 +97,6 @@ for i in range(len(hklCoords)):
 			file2.write(hklCoords[i-1] + " 0.0 1.0 0.0 1.0 \n" + hklCoords[i] + " 0.0 1.0 0.0 1.0 \n")
 		file2.close()
 
-file.close()
-
-#os.system("hev-animatorIRIS 
+file.close() 
 
 print("Done")

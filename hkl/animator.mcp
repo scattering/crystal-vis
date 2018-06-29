@@ -1,0 +1,5 @@
+SIZE 85 20
+BUTTON Animate
+FIRST EXEC hev-animator --noescape frame  test_animator.iris  > $IRIS_CONTROL_FIFO
+ON EXEC hev-showWindow hev-animator
+OFF EXEC hev-hideWindow hev-animator
