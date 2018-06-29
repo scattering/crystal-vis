@@ -2,6 +2,7 @@
 
 Python code for visualizing crystals given a .cfl
 
+All software used for the visualization is internal to NIST's ITL Laboratory.
 All code written in a centOS 7 terminal.
 
 ## Important shell commands
@@ -20,7 +21,8 @@ Write into shell:
 ```shell
 $ cat > coordinates.txt
 ```
-This automatically copies the rows into a text file, which can be plugged into a python read() function.
+Then paste into the shell and hit Ctrl + D. 
+This copies the rows into a text file, which can be plugged into a python read() function.
 
 Simply run crystal-vis.py for the desired visualization. 
 ### For hkl's
@@ -30,7 +32,8 @@ Write into shell:
 ```shell
 $ cat > hkl.txt
 ```
-This automatically copies the rows into a text file, which can be plugged into a python read() function.
+Then paste into the shell and hit Ctrl + D. 
+This copies the rows into a text file, which can be plugged into a python read() function.
 
 There exist two files to run, one for writing the data (hkl-vis.py) and one for running the visualization (run.sh).
 First run the write code (hkl-vis.py) until it terminates, then write into shell:
