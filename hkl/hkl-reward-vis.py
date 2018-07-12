@@ -1,5 +1,5 @@
 """
-Program name: crystal-vis.py
+Program name: hkl-reward-vis.py
 Authors: Ryan Cho and Telon Yan
 
 Makes .savg files for 3D Visualization of hkl points and the agent path 
