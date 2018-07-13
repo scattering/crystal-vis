@@ -1,0 +1,70 @@
+#
+# Created: Fri Jul 13 14:02:42 EDT 2018
+# With command: hev-moo
+#
+# Example Usage: irisfly --ex file.iris
+#
+
+###########################################################
+# Load objects and create scenegraph switch models on/off #
+###########################################################
+
+LOAD moo_tjy2_9881-hklCoords hklCoords.savg
+NODEMASK moo_tjy2_9881-hklCoords OFF
+ADDCHILD moo_tjy2_9881-hklCoords world
+
+###################################################
+# Create the "MOO" mcp file to turn models on/off #
+###################################################
+
+WAIT echo > /tmp/moo_${USER}${PPID}.mcp
+WAIT echo SIZE 75 20  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo COLUMNS 3  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo BUTTON hklCoords  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo ON  NODEMASK moo_tjy2_9881-hklCoords ON  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo OFF NODEMASK moo_tjy2_9881-hklCoords OFF >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo RESET hide show COLOR .7 .8 1  >> /tmp/moo_${USER}${PPID}.mcp
+
+################################################
+# Create a file to add a button to irisfly MCP #
+################################################
+
+WAIT echo BUTTON MOO > /tmp/mooAddToMCP_${USER}${PPID}.mcp
+WAIT echo FIRST EXEC hev-masterControlPanel -title MOO --noescape  /tmp/moo_${USER}${PPID}.mcp \> \$IRIS_CONTROL_FIFO >> /tmp/mooAddToMCP_${USER}${PPID}.mcp
+WAIT echo ON  EXEC hev-showWindow MOO >> /tmp/mooAddToMCP_${USER}${PPID}.mcp
+WAIT echo OFF EXEC hev-hideWindow MOO >> /tmp/mooAddToMCP_${USER}${PPID}.mcp
+# Add to MCP
+WAIT irisfly-addToMCP /tmp/mooAddToMCP_${USER}${PPID}.mcp
+
+#########################################
+# Clean up tmp files when irisfly exits #
+#########################################
+
+AFTER CLEANUP EXEC rm /tmp/moo_${USER}${PPID}.mcp
+AFTER CLEANUP EXEC rm /tmp/mooAddToMCP_${USER}${PPID}.mcp
+# animator iris contains 2 files
+# Created by hev-animatorIRIS Fri Jul 13 14:02:42 EDT 2018
+# hev-animatorIRIX hklCounts.savg khlCounts.savg
+GROUP line
+LOAD F_line1 hklCounts.savg
+NODEMASK F_line1 ON
+ADDCHILD F_line1 line
+
+LOAD F_line2 khlCounts.savg
+NODEMASK F_line2 OFF
+ADDCHILD F_line2 line
+
+RETURN line
+# animator iris contains 2 files
+# Created by hev-animatorIRIS Fri Jul 13 14:02:42 EDT 2018
+# hev-animatorIRIX hklCounts.savg khlCounts.savg
+GROUP line
+GROUP F_line1
+NODEMASK F_line1 ON
+ADDCHILD F_line1 line
+
+GROUP F_line2
+NODEMASK F_line2 OFF
+ADDCHILD F_line2 line
+
+RETURN line

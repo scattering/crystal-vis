@@ -11,7 +11,7 @@ import os
 os.system("source /usr/local/HEV/.bashhev")
 os.system("hev")				#for some reason this keeps yelling at us
 os.system("rm *.savg")
-os.system("touch khlCounts.savg")
+os.system("touch hklCounts.savg")
 
 #List of hkls as Strings, e.g. ["1 1 1", "1 3 1", "1 3 3"]
 hklCounts = {}
@@ -38,7 +38,7 @@ while (line != ""):
 sxtal_file.close()
 
 for i in range(NUM_FILES):
-    file = open("epGreedyResults" + str(i) +".txt", "r")			#Whatever filename your data is in
+    file = open("data/epGreedyResults" + str(i) +".txt", "r")			#Whatever filename your data is in
 
     #gets rid of the first line of the file (headers)
     line = file.readline()
@@ -48,24 +48,28 @@ for i in range(NUM_FILES):
 
     #read the rest of the file, line by line
     while (line != ""):
-	#Split up the line into the data components
-	splitLine = line.split()
-	print(splitLine)
+        print(line)
+        #Split up the line into the data components
+        splitLine = line.split()
+        print(splitLine)
 
-	#Get data from the line into our lists (list function is written at instantiation)
-	hkl = splitLine[0] + " " + splitLine[1] + " " + splitLine[2]
-	sxtal_hkls[hkl] += 1
+        #Get data from the line into our lists (list function is written at instantiation)
+        hkl = splitLine[0] + " " + splitLine[1] + " " + splitLine[2]
+        sxtal_hkls[hkl] += 1
 
-	#Read in the next line
-	line = file.readline()
+        #Read in the next line
+        line = file.readline()
 
-	file.close()
+    file.close()
 
 print("Generating model...")
 
 #Create a string that can be run in the shell command
 for i in sxtal_hkls:
+    print(i)
+    print(sxtal_hkls[i])
     #Create the spheres (HKL points)
-    os.system("savg-sphere | savg-scale 0.2 | savg-translate " + hklCoords[i] + " | savg-color -r 1  -g " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " -b " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " >> hklCounts.savg")
+    os.system("savg-sphere | savg-scale 0.2 | savg-translate " + i + " | savg-color -r 1  -g " + \
+    str(1.0 - sxtal_hkls[i]/NUM_FILES) + " -b " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " >> hklCounts.savg")
 
 print("Done")
