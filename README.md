@@ -48,6 +48,6 @@ Put the RL output files into a folder called "data"
 
 Run the write code (hkl-counts-vis.py) until it terminates, then write into shell:
 ```shell
-$ irisfly --ex hklCounts.savg
+$ irisfly --ex hklCounts.savg axis.osg.10,10,10.scale
 ```
-This is currently hard coded to work for epGreedyResults data, but can be easily changed to it with actor-critic and q-learning data
+This is currently hard coded to work for epGreedyResults data and the axes have a fixed size, but can be easily changed to it with actor-critic and q-learning data.
