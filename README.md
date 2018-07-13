@@ -25,7 +25,7 @@ Then paste into the shell and hit Ctrl + D.
 This copies the rows into a text file, which can be plugged into a python read() function.
 
 Simply run crystal-vis.py for the desired visualization. 
-### For hkl's
+### For hkl Rewards
 Highlight the desired rows with the mouse and copy.
 
 Write into shell:
@@ -36,9 +36,18 @@ Then paste into the shell and hit Ctrl + D.
 This copies the rows into a text file, which can be plugged into a python read() function.
 
 There exist two files to run, one for writing the data (hkl-vis.py) and one for running the visualization (run.sh).
-First run the write code (hkl-vis.py) until it terminates, then write into shell:
+First run the write code (hkl-rewards-vis.py) until it terminates, then write into shell:
 ```shell
 $ chmod +x run.sh
 $ ./run.sh
 ```
 This will output the desired visualization. 
+
+### For hkl Counts
+Put the RL output files into a folder called "data"
+
+Run the write code (hkl-counts-vis.py) until it terminates, then write into shell:
+```shell
+$ irisfly --ex hklCounts.savg
+```
+This is currently hard coded to work for epGreedyResults data, but can be easily changed to it with actor-critic and q-learning data
