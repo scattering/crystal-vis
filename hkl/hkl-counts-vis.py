@@ -64,12 +64,25 @@ for i in range(NUM_FILES):
 
 print("Generating model...")
 
-#Create a string that can be run in the shell command
+#Creates the HKL Points in an .savg file
 for i in sxtal_hkls:
-    print(i)
-    print(sxtal_hkls[i])
+#    print(i)
+#    print(sxtal_hkls[i])
     #Create the spheres (HKL points)
     os.system("savg-sphere | savg-scale 0.2 | savg-translate " + i + " | savg-color -r 1  -g " + \
     str(1.0 - sxtal_hkls[i]/NUM_FILES) + " -b " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " >> hklCounts.savg")
+
+
+file = open("countsM1.txt", "w")
+file.write("HKL\tCounts")
+values = list(sxtal_hkls.values())
+keys = list(sxtal_hkls.keys())
+
+for i in range(len(sxtal_hkls)):
+    maxInd = values.index(max(values))
+    file.write("\n" + str(keys[maxInd]).replace("[", "").replace("]", "").replace(",", "") + "\t" + str(values[maxInd]))
+    keys.pop(maxInd)
+    values.pop(maxInd)
+file.close()
 
 print("Done")
