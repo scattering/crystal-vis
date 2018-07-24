@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Displays the model made in hkl-vis.py
+#hev-frameGrabberControl 
 hev-moo hklCoords.savg > demo.iris
 hev-animatorIRIS line *.savg >> demo.iris
 hev-animatorIRIS -nogeometry line *.savg >> demo.iris
