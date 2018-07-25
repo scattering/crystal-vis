@@ -10,12 +10,14 @@ import os
 
 os.system("source /usr/local/HEV/.bashhev")
 os.system("hev")				#for some reason this keeps yelling at us
-os.system("rm *.savg")
+os.system("rm hklCounts.savg")
 os.system("touch hklCounts.savg")
 
 #List of hkls as Strings, e.g. ["1 1 1", "1 3 1", "1 3 3"]
 hklCounts = {}
 NUM_FILES = 500
+foldername = "set0_anneal2"
+
 
 print("Reading...")
 
@@ -38,7 +40,7 @@ while (line != ""):
 sxtal_file.close()
 
 for i in range(NUM_FILES):
-    file = open("data/epGreedyResults" + str(i) +".txt", "r")			#Whatever filename your data is in
+    file = open(foldername + "/epGreedyResults" + str(i) +".txt", "r")			#Opens the results files in order
 
     #gets rid of the first line of the file (headers)
     line = file.readline()
@@ -73,7 +75,7 @@ for i in sxtal_hkls:
     str(1.0 - sxtal_hkls[i]/NUM_FILES) + " -b " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " >> hklCounts.savg")
 
 
-file = open("countsM1.txt", "w")
+file = open("counts_" + foldername + ".txt", "w")
 file.write("HKL\tCounts")
 values = list(sxtal_hkls.values())
 keys = list(sxtal_hkls.keys())

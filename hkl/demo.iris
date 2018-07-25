@@ -1,5 +1,5 @@
 #
-# Created: Tue Jul 24 15:33:56 EDT 2018
+# Created: Tue Jul 24 15:48:42 EDT 2018
 # With command: hev-moo
 #
 # Example Usage: irisfly --ex file.iris
@@ -9,9 +9,9 @@
 # Load objects and create scenegraph switch models on/off #
 ###########################################################
 
-LOAD moo_tjy2_14824-hklCounts hklCounts.savg
-NODEMASK moo_tjy2_14824-hklCounts OFF
-ADDCHILD moo_tjy2_14824-hklCounts world
+LOAD moo_tjy2_19093-hklCounts hklCounts.savg
+NODEMASK moo_tjy2_19093-hklCounts OFF
+ADDCHILD moo_tjy2_19093-hklCounts world
 
 ###################################################
 # Create the "MOO" mcp file to turn models on/off #
@@ -21,8 +21,8 @@ WAIT echo > /tmp/moo_${USER}${PPID}.mcp
 WAIT echo SIZE 75 20  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo COLUMNS 3  >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo BUTTON hklCounts  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo ON  NODEMASK moo_tjy2_14824-hklCounts ON  >> /tmp/moo_${USER}${PPID}.mcp
-WAIT echo OFF NODEMASK moo_tjy2_14824-hklCounts OFF >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo ON  NODEMASK moo_tjy2_19093-hklCounts ON  >> /tmp/moo_${USER}${PPID}.mcp
+WAIT echo OFF NODEMASK moo_tjy2_19093-hklCounts OFF >> /tmp/moo_${USER}${PPID}.mcp
 WAIT echo RESET hide show COLOR .7 .8 1  >> /tmp/moo_${USER}${PPID}.mcp
 
 ################################################

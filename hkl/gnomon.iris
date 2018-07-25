@@ -1,0 +1,5 @@
+dcs gnomon 0 0 0 0 0 0 20 20 20
+load gnomon0 gnomon.osg
+addChild gnomon0 gnomon
+return gnomon
+
