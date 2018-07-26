@@ -8,15 +8,18 @@ they are visited over some number of simulations
 
 import os
 
-os.system("source /usr/local/HEV/.bashhev")
-os.system("hev")				#for some reason this keeps yelling at us
-os.system("rm hklCounts.savg")
-os.system("touch hklCounts.savg")
+
+#the name of the folder where you get your data from
+foldername = "set0_anneal2"
+
+#os.system("source /usr/local/HEV/.bashhev")
+#os.system("hev")				#for some reason this keeps yelling at us
+os.system("rm *.savg")
+os.system("touch hklCounts_" + foldername + ".savg")
 
 #List of hkls as Strings, e.g. ["1 1 1", "1 3 1", "1 3 3"]
 hklCounts = {}
 NUM_FILES = 500
-foldername = "set0_anneal2"
 
 
 print("Reading...")
@@ -72,7 +75,7 @@ for i in sxtal_hkls:
 #    print(sxtal_hkls[i])
     #Create the spheres (HKL points)
     os.system("savg-sphere | savg-scale 0.2 | savg-translate " + i + " | savg-color -r 1  -g " + \
-    str(1.0 - sxtal_hkls[i]/NUM_FILES) + " -b " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " >> hklCounts.savg")
+    str(1.0 - sxtal_hkls[i]/NUM_FILES) + " -b " + str(1.0 - sxtal_hkls[i]/NUM_FILES) + " >> hklCounts_" + foldername + ".savg")
 
 
 file = open("counts_" + foldername + ".txt", "w")
