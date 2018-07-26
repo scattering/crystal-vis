@@ -38,16 +38,19 @@ This copies the rows into a text file, which can be plugged into a python read()
 There exist two files to run, one for writing the data (hkl-vis.py) and one for running the visualization (run.sh).
 First run the write code (hkl-rewards-vis.py) until it terminates, then write into shell:
 ```shell
-$ chmod +x run.sh
-$ ./run.sh
+$ chmod +x run_count.sh
+$ ./run_count.sh
 ```
 This will output the desired visualization. 
 
 ### For hkl Counts
-Put the RL output files into a folder called "data"
+Copy and Paste the folder containing data for a single simulation inside of Github/crystal-vis/hkl. Make sure the .txt data files within the folder are named "epGreedyResults" + <some integer> + ".txt". 
+  
+Use any text editor to edit hkl-count-vis.py by changing variable 'foldername' to your data folder's name. 
 
 Run the write code (hkl-counts-vis.py) until it terminates, then write into shell:
 ```shell
-$ irisfly --ex hklCounts.savg axis.osg.10,10,10.scale
+$ chmod +x run_count.sh
+$ ./run_count.sh
 ```
 This is currently hard coded to work for epGreedyResults data and the axes have a fixed size, but can be easily changed to it with actor-critic and q-learning data.
